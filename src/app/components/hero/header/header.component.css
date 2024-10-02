@@ -1,0 +1,89 @@
+header{
+  margin: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  z-index: 11;
+  padding: 0px 50px;
+  width: 100%;
+  height: var(--nav-height);
+  background-color: rgba(10, 25, 47, 0.85);
+  filter: none !important;
+  pointer-events: auto !important;
+  --webkit-user-select: auto !important;
+  --webkit-backdrop-filter: blur(10px);
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.logo span{
+  font-size: 1.3rem;
+  letter-spacing: 10px;
+  transition: all 0.5s ease;
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;;
+}
+.logo span:hover{
+  cursor: pointer;
+  transform: translateY(-7px);
+  display: inline-block;
+}
+
+.logo span:nth-child(-n + 4){
+  color: #64ffda;
+}
+.logo span:nth-child(n + 5){
+  color: #CCD6F6;
+}
+
+a{
+  color: #a8b2d1;
+  text-decoration: none;
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  font-size: 15px;
+}
+nav{
+  display: flex;
+  align-items: center;
+}
+
+ul li{
+  list-style: none;
+  display: inline-block;
+  margin: 0 15px;
+  transition: all 0.5s ease;
+}
+ul li a:hover{
+  cursor: pointer;
+  color: #64ffda;
+  display: inline-block;
+}
+
+ul li span{
+  color: #64ffda;
+}
+
+.resume-button{
+  color: #64ffda;
+  background-color: transparent;
+  border: 1px solid #64ffda;
+  padding: 0.75rem 1rem;
+  line-height: 1;
+  text-decoration: none;
+  margin-left: 15px;
+  font-size: 15px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -moz-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -ms-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.resume-button:hover{
+  color: #020c1b;
+  background-color: #4acfb0;
+}
