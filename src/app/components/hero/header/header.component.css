@@ -1,5 +1,4 @@
 header{
-  margin: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,7 +7,7 @@ header{
   z-index: 11;
   padding: 0px 50px;
   width: 100%;
-  height: var(--nav-height);
+  height: 100px;
   background-color: rgba(10, 25, 47, 0.85);
   filter: none !important;
   pointer-events: auto !important;
