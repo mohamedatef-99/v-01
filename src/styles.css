@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import "primeicons/primeicons.css";
 
 :root {
   --dark-navy: #020c1b;
@@ -28,11 +28,11 @@
 
 
 
-/* ::-webkit-scrollbar { width: 4px; } */
+::-webkit-scrollbar { width: 4px; }
 
-/* ::-webkit-scrollbar-track { background-color: transparent; } */
+::-webkit-scrollbar-track { background-color: transparent; }
 
-/* ::-webkit-scrollbar-thumb { background-color: var(--green); } */
+::-webkit-scrollbar-thumb { background-color: var(--green); }
 
 body{
   background-color: var(--navy);

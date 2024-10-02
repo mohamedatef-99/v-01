@@ -1,0 +1,49 @@
+section{
+  width: 40px;
+  position: fixed;
+  bottom: 0px;
+  left: auto;
+  right: 40px;
+  z-index: 10;
+  color: #a8b2d1;
+}
+.mail{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+a{
+  margin: 20px auto;
+  padding: 10px;
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  letter-spacing: 0.2em;
+  writing-mode: vertical-rl;
+  text-decoration: none;
+  color: #a8b2d1;
+  font-size: 12px;
+  line-height: 1.3;
+  display: inline-block;
+  text-decoration-skip-ink: auto;
+  color: inherit;
+  position: relative;
+  -webkit-transition: transform .2s,scale .2s;
+  -moz-transition: transform .2s,scale .2s;
+  -ms-transition: transform .2s,scale .2s;
+  -o-transition: transform .2s,scale .2s;
+  transition: transform .2s,scale .2s;
+}
+
+a:hover{
+  transform: scale(1.2);
+  color: #64ffda;
+}
+
+.mail::after{
+  content: "";
+  display: block;
+  width: 1px;
+  height: 90px;
+  margin: 0px auto;
+  background-color: #a8b2d1;
+}

@@ -8,9 +8,9 @@ export const routes: Routes = [
   //   component: LoaderComponent,
   //   title: 'Loading'
   // },
-  {
-    path: '',
-    component: HeroComponent,
-    title: 'Mohamed Atef'
-  }
+  // {
+  //   path: '',
+  //   component: HeroComponent,
+  //   title: 'Mohamed Atef'
+  // }
 ];
