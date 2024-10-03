@@ -1,0 +1,14 @@
+.container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.side-left{
+  width: 10%;
+}
+.right-side{
+  width: 10%;
+}
+.hero{
+  width: 80%;
+}
