@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from "./header/header.component";
 import { HomeComponent } from './home/home.component';
-import { SideComponent } from "./side/side.component";
-import { LeftSideComponent } from "./left-side/left-side.component";
-import { AboutComponent } from '../about/about.component';
+import { AboutComponent } from './about/about.component';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [HeaderComponent, HomeComponent, SideComponent, LeftSideComponent, AboutComponent],
+  imports: [HomeComponent, AboutComponent],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css'
 })
