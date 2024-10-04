@@ -1,0 +1,36 @@
+<section class="container" id="experience">
+  <h2 class="ex-head">Where I’ve Worked</h2>
+  <div class="inner">
+    <div class="tabs">
+      @for (company of companies(); track company.id) {
+        <button type="button"
+          (click)="selectCompany(company)"
+          [class.active]="company === selectedCompany()"
+        >
+          <span>
+            {{ company.name }}
+          </span>
+        </button>
+      }
+    </div>
+
+    <div class="content">
+      @if (selectedCompany()) {
+      <div>
+        <h3>
+          <span>{{ selectedCompany().title }}</span>
+          <span class="company">
+            <a>{{selectedCompany().company }}</a>
+          </span>
+        </h3>
+        <p>{{ selectedCompany().date }}</p>
+        <ul>
+          @for (duty of selectedCompany().duties; track duty) {
+          <li>{{ duty }}</li>
+          }
+        </ul>
+      </div>
+      }
+    </div>
+  </div>
+</section>
