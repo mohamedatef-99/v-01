@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SideComponent } from '../side/side.component';
+import { SideComponent } from '../../side/side.component';
 
 @Component({
   selector: 'app-home',
