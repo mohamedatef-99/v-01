@@ -41,7 +41,8 @@ body{
   padding: 0;
   font-size: 20px;
   font-family: Roboto,"Helvetica Neue", sans-serif;
-  /* min-height: 2000px; */
+  /* font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+  transition:0.25scubic-bezier(0.645,0.045,0.355,1); */
 }
 
 
