@@ -103,7 +103,7 @@ ul li span{
   transition: transform 0.5s ease;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 960px) {
   nav {
     display: none;
     align-content: center;
