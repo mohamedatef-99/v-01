@@ -3,7 +3,7 @@
   justify-content: space-between;
 }
 
-.side-left{
+.left-side{
   width: 10%;
 }
 .right-side{
@@ -11,4 +11,18 @@
 }
 .hero{
   width: 80%;
+}
+
+@media (max-width: 480px) {
+  /* Styles for mobile devices */
+  .right-side{
+    width: 1%;
+  }
+  .left-side{
+    width: 1%;
+  }
+  .hero{
+    width: 80%;
+  }
+
 }

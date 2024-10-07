@@ -1,6 +1,6 @@
 section{
   max-width: 600px;
-  margin: 0px auto 100px;
+  margin: 0px auto;
   text-align: center;
   padding: 100px 0px;
   color: #8892b0;
@@ -45,7 +45,7 @@ p:last-of-type{
   text-align: center;
 }
 
-a{
+.contactt a{
   color: #64ffda;
   background-color: transparent;
   border: 1px solid #64ffda;
@@ -66,6 +66,49 @@ a{
   border-radius: 4px;
 }
 
-a:hover{
+.contactt a:hover{
   background-color: rgba(96, 246, 211, 0.5);
+}
+
+.social{
+  display: none;
+  width: 100%;
+  max-width: 270px;
+  margin: 0px auto 10px;
+  color: #a8b2d1;
+  margin: auto auto 100px;
+}
+.social ul{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+.social ul li{
+  margin: 0px;
+} 
+.social ul li a{
+  display: inline-block;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  color: inherit;
+  position: relative;
+  transition: var(--transition);
+}
+.social ul li a:hover{
+  color: #64ffda;
+}
+
+
+@media (max-width: 1024px) {
+  .social{
+    display: block;
+  }
+}
+@media (max-width: 480px) {
+  p{
+    font-size: 18px;
+  }
 }
