@@ -30,20 +30,20 @@ section {
   font-weight: 400;
 }
 
-.head{
+.head {
   display: flex;
   align-items: center;
   position: relative;
   margin: 10px 0px 40px;
   width: 100%;
-  font-size: clamp(26px,5vw,32px);
+  font-size: clamp(26px, 5vw, 32px);
   white-space: nowrap;
   font-weight: 600;
   color: #ccd6f6;
   line-height: 1.1;
 }
 
-ul{
+ul {
   list-style: none;
   padding: 0px;
   margin: 50px 0px 0px;
@@ -53,14 +53,14 @@ ul{
   position: relative;
 }
 
-ul li{
+ul li {
   position: relative;
 }
-ul li:hover .project-title a{
+ul li:hover .project-title a {
   color: #64ffda;
 }
 
-.project-inner{
+.project-inner {
   box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
   display: flex;
   justify-content: space-between;
@@ -77,36 +77,36 @@ ul li:hover .project-title a{
   -ms-border-radius: 4px;
   -o-border-radius: 4px;
   border-radius: 4px;
-  -webkit-transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
-  -moz-transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
-  -ms-transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
-  -o-transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
-  transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
+  -webkit-transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
+  -moz-transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
+  -ms-transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.project-top{
+.project-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 35px;
 }
-.project-top .folder{
+.project-top .folder {
   color: #64ffda;
 }
 
-.project-top .project-link{
+.project-top .project-link {
   display: flex;
   align-items: center;
   margin-right: -10px;
   color: #a8b2d1;
 }
 
-.folder svg{
+.folder svg {
   width: 40px;
   height: 40px;
 }
 
-.project-link a{
+.project-link a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -116,23 +116,23 @@ ul li:hover .project-title a{
   text-decoration: none;
   text-decoration-skip-ink: auto;
   color: inherit;
-  -webkit-transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
-  -moz-transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
-  -ms-transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
-  -o-transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
-  transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
+  -webkit-transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
+  -moz-transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
+  -ms-transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
 }
-.project-link a:hover{
+.project-link a:hover {
   color: #64ffda;
 }
 
-.project-link a svg{
+.project-link a svg {
   width: 22px;
   height: 22px;
   margin-top: -4px;
 }
 
-.project-title{
+.project-title {
   margin: 0px 0px 10px;
   color: #ccd6f6;
   font-size: 22px;
@@ -140,33 +140,33 @@ ul li:hover .project-title a{
   line-height: 1.1;
 }
 
-.project-title a:hover{
+.project-title a:hover {
   color: #64ffda;
 }
 
-.project-title a{
+.project-title a {
   display: inline-block;
   text-decoration: none;
   text-decoration-skip-ink: auto;
   color: inherit;
   position: static;
-  -webkit-transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
-  -moz-transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
-  -ms-transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
-  -o-transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
-  transition: 0.25scubic-bezier(0.645,0.045,0.355,1);
+  -webkit-transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
+  -moz-transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
+  -ms-transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: 0.25scubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.project-desc{
+.project-desc {
   color: #a8b2d1;
   font-size: 17px;
 }
 
-.project-desc p:last-of-type{
+.project-desc p:last-of-type {
   margin: 0px;
 }
 
-footer ul{
+footer ul {
   display: flex;
   align-items: flex-end;
   flex-grow: 1;
@@ -176,12 +176,19 @@ footer ul{
   list-style: none;
 }
 
-footer ul li:not(:last-of-type){
+footer ul li:not(:last-of-type) {
   margin-right: 15px;
 }
 
-footer ul li{
-  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+footer ul li {
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
   font-size: 12px;
   line-height: 1.75;
+}
+
+@media (max-width: 480px) {
+  /* Styles for mobile devices */
+  .head {
+    font-size: clamp(20px, 5vw, 32px);;
+  }
 }

@@ -86,3 +86,82 @@ ul li span{
   color: #020c1b;
   background-color: #4acfb0;
 }
+
+.menu {
+  display: none;
+  font-size: 1.5rem;
+}
+
+.menu i,
+.menu svg {
+  cursor: pointer;
+  color: #64ffda;
+  width: 30px;
+  height: 24px;
+  z-index: 99;
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+
+@media screen and (max-width: 1024px) {
+  nav {
+    display: none;
+    align-content: center;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    padding: 50px 10px;
+    width: min(75vw, 400px);
+    height: 100vh;
+    outline: 0px;
+    background-color: #112240;
+    box-shadow: -10px 0px 30px -15px rgba(2, 12, 27, 0.7);
+    z-index: -1;
+    transform: translateX(0vw);
+    visibility: visible;
+    transition: max-height 0.5s ease, opacity 0.5s ease, visibility 0.5s;
+  }
+  nav.active {
+  display: block;
+}
+  ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    width: 100%;
+  }
+  ul li{
+    display: block;
+    margin: 20px 0px;
+    text-align: center;
+  }
+
+  ul li a{
+    display: flex;
+    flex-direction: column;
+    padding: 3px 20px 20px;
+    font-size: clamp(14px,4vw,18px);
+  }
+  ul li a:hover{
+    display: flex;
+    flex-direction: column;
+  }
+  li span{
+    margin-bottom: 5px;
+  }
+  .resume-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: max-content;
+    padding: 18px 50px;
+  }
+
+  .menu {
+    display: block;
+  }
+
+
+}

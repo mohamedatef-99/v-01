@@ -47,3 +47,10 @@ a:hover{
   margin: 0px auto;
   background-color: #a8b2d1;
 }
+
+@media (max-width: 1024px) {
+  /* Styles for large tablets */
+  .mail{
+    display: none;
+  }
+}

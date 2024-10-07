@@ -3,33 +3,33 @@
   margin: 0px auto;
   padding: 100px 0px;
   color: #8892b0;
-  font-family: Roboto,"Helvetica Neue", sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   font-size: 20px;
   line-height: 1.3;
 }
-.ex-head{
+.ex-head {
   display: flex;
   align-items: center;
   position: relative;
   margin: 10px 0px 40px;
   width: 100%;
-  font-size: clamp(26px,5vw,32px);
+  font-size: clamp(26px, 5vw, 32px);
   white-space: nowrap;
   font-weight: 600;
   color: #ccd6f6;
   line-height: 1.1;
 }
-.ex-head::before{
+.ex-head::before {
   position: relative;
   counter-increment: section 2;
   content: "0" counter(section) ".";
   margin-right: 10px;
   color: var(--green);
-  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
-  font-size: clamp(16px,3vw,20px);
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  font-size: clamp(16px, 3vw, 20px);
   font-weight: 400;
 }
-.ex-head::after{
+.ex-head::after {
   content: "";
   display: block;
   position: relative;
@@ -40,7 +40,7 @@
   background-color: #233554;
 }
 
-.inner{
+.inner {
   display: flex;
   justify-content: space-between;
 }
@@ -54,16 +54,16 @@
 .content h3 {
   margin-bottom: 2px;
   font-size: 22px;
-  font-family: Roboto,"Helvetica Neue", sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   font-weight: 500;
   line-height: 1.3;
   margin: 0px 0px 10px;
   color: #ccd6f6;
 }
-.content h3 .company{
+.content h3 .company {
   color: #64ffda;
 }
-.content a{
+.content a {
   color: #64ffda;
   position: relative;
   text-decoration: none;
@@ -73,14 +73,14 @@
   transition: color 0.3s ease;
 
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 0;
     height: 1px;
     background-color: #64ffda;
     left: 0;
     bottom: 0;
-    transition: width 0.4s ease; 
+    transition: width 0.4s ease;
   }
 
   &:hover::after {
@@ -88,35 +88,35 @@
   }
 }
 
-.content p{
+.content p {
   margin-bottom: 25px;
   color: #a8b2d1;
-  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
-  font-size: 13px
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  font-size: 13px;
 }
 
-.content ul{
+.content ul {
   padding: 0px;
   margin: 0px;
   list-style: none;
   font-size: 18px;
   color: #8892b0;
-  font-family: Roboto,"Helvetica Neue", sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   line-height: 1.3;
 }
 
-.content ul li{
+.content ul li {
   position: relative;
   padding-left: 30px;
   margin-bottom: 10px;
   list-style: none;
   font-size: 18px;
   color: #8892b0;
-  font-family: Roboto,"Helvetica Neue", sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   line-height: 1.3;
 }
 
-.content ul li::before{
+.content ul li::before {
   content: "▹";
   position: absolute;
   left: 0px;
@@ -160,5 +160,36 @@
     &:focus {
       outline: none;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  /* Styles for small tablets */
+  .inner {
+    flex-direction: column;
+  }
+  .tabs {
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    button {
+      &.active {
+        border-left: none;
+        border-bottom: 2px solid #64ffda;
+        width: 150px;
+      }
+    }
+  }
+  .content {
+    width: 100%;
+  }
+  .content h3 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 480px) {
+  /* Styles for mobile devices */
+  .content h3 {
+    font-size: 15px;
   }
 }

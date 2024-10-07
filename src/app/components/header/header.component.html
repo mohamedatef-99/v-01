@@ -10,15 +10,22 @@
     <span class="f">i</span>
     <span class="f">o</span>
   </div>
-  <nav>
+  <nav [ngClass]="{'active': isMenuOpen}">
     <ul>
-      <li><a href="#about" routerLinkActive="active"><span>01.</span> About</a></li>
-      <li><a href="#experience" routerLinkActive="active"><span>02.</span> Experience</a></li>
-      <li><a href="#work" routerLinkActive="active"><span>03.</span> Work</a></li>
-      <li><a href="#contact" routerLinkActive="active"><span>04.</span> Contact</a></li>
+      <li><a href="#about" routerLinkActive="active" (click)="closeMenu()"><span>01.</span> About</a></li>
+      <li><a href="#experience" routerLinkActive="active" (click)="closeMenu()"><span>02.</span> Experience</a></li>
+      <li><a href="#work" routerLinkActive="active" (click)="closeMenu()"><span>03.</span> Work</a></li>
+      <li><a href="#contact" routerLinkActive="active" (click)="closeMenu()"><span>04.</span> Contact</a></li>
     </ul>
     <div>
       <a class="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
     </div>
   </nav>
+
+  <div class="menu" (click)="toggleMenu()">
+    <i *ngIf="!isMenuOpen" class="pi pi-bars"></i>
+    <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+      <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+    </svg>
+  </div>
 </header>
