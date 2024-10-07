@@ -48,9 +48,16 @@ a:hover{
   background-color: #a8b2d1;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   /* Styles for large tablets */
   .mail{
     display: none;
+  }
+}
+
+@media (max-width: 950px) {
+  /* Styles for large tablets */
+  section{
+    right: 10px;
   }
 }
