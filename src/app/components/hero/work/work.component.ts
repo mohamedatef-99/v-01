@@ -1,68 +1,130 @@
 import { Component, signal } from '@angular/core';
+import { RevealDirective } from '../../../directives/reveal.directive';
+
+interface FeaturedProject {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  highlights: string[];
+  stack: string[];
+  liveLink: string;
+  image: string; // path under assets/projects/ — drop screenshots in later
+}
+
+interface MiniProject {
+  id: number;
+  title: string;
+  description: string;
+  stack: string[];
+  githubLink: string;
+  externalLink: string;
+}
 
 @Component({
   selector: 'app-work',
   standalone: true,
-  imports: [],
+  imports: [RevealDirective],
   templateUrl: './work.component.html',
   styleUrl: './work.component.css',
 })
 export class WorkComponent {
-  projects = signal([
+  featured = signal<FeaturedProject[]>([
+    {
+      id: 1,
+      title: 'Fly WT',
+      subtitle: 'Bilingual flight booking platform',
+      description:
+        'A full-scale, production flight booking platform built from scratch — flight search, seat selection, booking management, and an integrated local Egyptian payment gateway handling the complete transactional flow.',
+      highlights: [
+        'Full Arabic & English support with RTL layout switching',
+        'End-to-end payment integration inside the Angular app',
+        'CMS integration and SEO best practices',
+      ],
+      stack: ['Angular', 'TypeScript', 'Tailwind CSS', 'CMS', 'i18n/RTL'],
+      liveLink: '',
+      image: '',
+    },
+    {
+      id: 2,
+      title: 'Money Collector',
+      subtitle: 'Real-time agency management dashboard',
+      description:
+        'A modern responsive dashboard managing agency balances, wallets, and top-ups for distributed field operations — with live agent tracking on Google Maps and instant updates over SignalR.',
+      highlights: [
+        'Real-time communication via SignalR',
+        'Live agent tracking with Google Maps integration',
+        'Dashboards, reports, wallets, OTP, roles & permissions',
+      ],
+      stack: ['Angular 18', 'Tailwind CSS', 'SignalR', 'Google Maps API'],
+      liveLink: '',
+      image: 'assets/projects/money-collector.png',
+    },
+    {
+      id: 3,
+      title: 'NDC Uplift',
+      subtitle: 'Full front-end rebuild — B2B travel platform',
+      description:
+        'Rebuilt the entire NDC front-end from scratch in Angular 16 for Wonder Travel B2B — modernizing the UI/UX and architecture while keeping full functional parity with the legacy platform.',
+      highlights: [
+        'Significant technical-debt reduction and faster load times',
+        'Modern Angular design-system patterns',
+        'Full functional parity with the legacy system',
+      ],
+      stack: ['Angular 16', 'TypeScript', 'Nx', 'Design Systems'],
+      liveLink: '',
+      image: 'assets/projects/ndc-uplift.png',
+    },
+    {
+      id: 4,
+      title: 'Price Hunter',
+      subtitle: 'Ionic product management app',
+      description:
+        'Designed and built from scratch: a scalable admin tool managing thousands of product records with add, edit, and sync functionality — engineered with a reusable component architecture that holds up under high data volumes.',
+      highlights: [
+        'Handles thousands of records without performance degradation',
+        'Reusable component architecture',
+        'Built and shipped end-to-end',
+      ],
+      stack: ['Ionic', 'Angular', 'REST APIs', 'Firebase'],
+      liveLink: '',
+      image: 'assets/projects/price-hunter.png',
+    },
+  ]);
+
+  onImgError(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.style.display = 'none';
+    img.parentElement?.classList.add('placeholder');
+  }
+
+  others = signal<MiniProject[]>([
     {
       id: 1,
       title: 'E-commerce Website',
       description:
-        'Built a complete e-commerce platform allowing users to browse, add products to carts, and proceed to checkout. Implemented a secure authentication system allowing users to log in with Google credentials and maintain authenticated sessions.',
-      stack: ['Next Js', 'Node Js', 'Express Js', 'MongoDB'],
+        'Complete e-commerce platform with cart, checkout, and Google authentication with persistent sessions.',
+      stack: ['Next.js', 'Node.js', 'Express', 'MongoDB'],
       githubLink: 'https://github.com/mohamedatef-99/Next-JS-Ecommerce',
       externalLink: 'https://nextjs-ecommerce-ma.netlify.app/',
     },
     {
       id: 2,
-      title: 'Golds Gym',
-      description:
-        'Golds Gym is a React-based web application designed to assist fitness enthusiasts in exploring various exercises, accessing detailed information about them, and viewing associated instructional videos.',
-      stack: ['React', 'Tailwaind', 'RapidApi'],
-      githubLink: 'https://github.com/mohamedatef-99/Golds-Gym-using-React',
-      externalLink: 'https://mt-goldgym.netlify.app/',
-    },
-    {
-      id: 3,
-      title: 'My Store',
-      description:
-        'MyStore is an Angular-based e-commerce application integrated with APIs to provide a user-friendly interface for browsing products, viewing product details, managing a shopping cart, and incorporating a form for data insertion.',
-      stack: ['Angular', 'Bootstrap'],
-      githubLink: 'https://github.com/mohamedatef-99/MyStore-app-using-angular',
-      externalLink:
-        'https://mohamedatef-99.github.io/MyStore-app-using-angular/',
-    },
-    {
-      id: 4,
-      title: 'Grill Restaurant',
-      description:
-        'Creating restaurant website using HTML, CSS and JavaScript. the website has some sections like About us, Menu, Upcoming events and Form for reservation. Moreover the website has some features like a slider, auto slider and it has a scroll up button.',
-      stack: ['HTML', 'CSS', 'Javascript'],
-      githubLink: 'https://github.com/mohamedatef-99/Restaurant-Website',
-      externalLink: 'https://mohamedatef-99.github.io/Restaurant-Website/',
-    },
-    {
-      id: 5,
       title: 'Hospital System',
       description:
-        'Developed to streamline patient care and improve administrative processes using Angular, Angular Material, and Firebase. Optimizing code reusability and maintainability.',
+        'Hospital management system streamlining patient care and admin workflows, with reusable, maintainable components.',
       stack: ['Angular', 'Angular Material', 'Firebase'],
       githubLink: 'https://github.com/mohamedatef-99/Hospital-Management-System',
       externalLink: 'https://hospital-management-779ee.web.app/',
     },
     {
-      id: 6,
-      title: 'Multi Step Form',
+      id: 3,
+      title: 'Golds Gym',
       description:
-        'It is a form has four steps info, plan, add-ons and summary each step include validations and it developed by using Angular.',
-      stack: ['Angular', 'CSS',],
-      githubLink: 'https://github.com/mohamedatef-99/Multi-Step-Form',
-      externalLink: 'https://multistepformangular.netlify.app/',
+        'Fitness app for exploring exercises with detailed info and instructional videos, powered by RapidAPI.',
+      stack: ['React', 'Tailwind CSS', 'RapidAPI'],
+      githubLink: 'https://github.com/mohamedatef-99/Golds-Gym-using-React',
+      externalLink: 'https://mt-goldgym.netlify.app/',
     },
   ]);
 }

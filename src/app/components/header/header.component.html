@@ -1,21 +1,14 @@
 <header>
-  <div class="logo">
-    <span class="p">P</span>
-    <span class="p">o</span>
-    <span class="p">r</span>
-    <span class="p">t</span>
-    <span class="f">f</span>
-    <span class="f">o</span>
-    <span class="f">l</span>
-    <span class="f">i</span>
-    <span class="f">o</span>
-  </div>
+  <a class="logo" href="#" aria-label="Home">
+    <span class="mono">&lt;</span>MA<span class="mono">/&gt;</span>
+  </a>
+
   <nav [ngClass]="{'active': isMenuOpen}">
     <ul>
-      <li><a href="#about" routerLinkActive="active" (click)="closeMenu()"><span>01.</span> About</a></li>
-      <li><a href="#experience" routerLinkActive="active" (click)="closeMenu()"><span>02.</span> Experience</a></li>
-      <li><a href="#work" routerLinkActive="active" (click)="closeMenu()"><span>03.</span> Work</a></li>
-      <li><a href="#contact" routerLinkActive="active" (click)="closeMenu()"><span>04.</span> Contact</a></li>
+      <li><a href="#about" (click)="closeMenu()"><span>01.</span> About</a></li>
+      <li><a href="#experience" (click)="closeMenu()"><span>02.</span> Experience</a></li>
+      <li><a href="#work" (click)="closeMenu()"><span>03.</span> Work</a></li>
+      <li><a href="#contact" (click)="closeMenu()"><span>04.</span> Contact</a></li>
     </ul>
     <div>
       <a class="resume-button" href="assets/resume/Mohamed_Atef_Frontend_Developer_CV.pdf" target="_blank">Resume</a>
@@ -24,8 +17,6 @@
 
   <div class="menu" (click)="toggleMenu()">
     <i *ngIf="!isMenuOpen" class="pi pi-bars"></i>
-    <svg *ngIf="isMenuOpen" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-      <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-    </svg>
+    <i *ngIf="isMenuOpen" class="pi pi-times"></i>
   </div>
 </header>

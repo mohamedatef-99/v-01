@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { SideComponent } from '../../side/side.component';
+import { RevealDirective } from '../../../directives/reveal.directive';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [SideComponent],
+  imports: [RevealDirective],
   templateUrl: './contact.component.html',
-  styleUrl: './contact.component.css'
+  styleUrl: './contact.component.css',
 })
-export class ContactComponent {
-
-}
+export class ContactComponent {}

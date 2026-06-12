@@ -1,38 +1,48 @@
-<section id="about">
-  <h2 class="head">About Me</h2>
-  <div class="container">
-    <div class="about-me">
-      <div class="bref">
-        <p>
-          I'm a Frontend Developer with 2+ years of hands-on experience building
-          dynamic, high-performance web applications. My expertise centers on
-          Angular and modern web technologies, enabling me to develop scalable,
-          maintainable front-end systems that deliver real business value.
-        </p>
-        <p>
-          I take pride in writing clean, efficient, and readable code —
-          transforming complex requirements into intuitive, pixel-perfect
-          interfaces. Whether it's dashboards, real-time features, or
-          mobile-first design, I approach every project with a blend of
-          technical skill and creative thinking.
-        </p>
-        <p>
-          I'm a strong believer in collaboration, continuous learning, and
-          thoughtful UI/UX. I work closely with cross-functional teams to build
-          products that are not just functional — but delightful to use.
-        </p>
-      </div>
-      <div class="skills">
-        <p>Key Competencies:</p>
-        <ul>
-          <li>JavaScript</li>
-          <li>TypeScript</li>
-          <li>Angular</li>
-        </ul>
+<section class="block" id="about">
+  <div class="section-head" appReveal>
+    <span class="num">01.</span>
+    <h2>About Me</h2>
+  </div>
+
+  <div class="grid">
+    <div class="text" appReveal>
+      <p>
+        I'm a Front-End Developer with 2+ years of experience building
+        scalable Angular applications for enterprise clients. I've delivered
+        complex, real-world products — from a full flight-booking platform
+        with payment integration to real-time dashboards and legacy
+        AngularJS-to-Angular migrations.
+      </p>
+      <p>
+        I bring a full-stack perspective (Angular + .NET) and a strong eye
+        for UI/UX and performance. I care about clean, maintainable code:
+        reusable component libraries I've built have been adopted across
+        multiple product lines.
+      </p>
+      <p>
+        Beyond code, I work closely with designers, backend engineers, and
+        product teams in Agile setups — translating business requirements
+        into interfaces that are fast, accessible, and a pleasure to use.
+      </p>
+
+      <div class="skills" appReveal>
+        @for (group of skillGroups(); track group.label) {
+          <div class="skill-group">
+            <span class="label">{{ group.label }}</span>
+            <ul>
+              @for (skill of group.skills; track skill) {
+                <li>{{ skill }}</li>
+              }
+            </ul>
+          </div>
+        }
       </div>
     </div>
-    <div class="image">
-      <img src="assets/cover.jpg" alt="Cover" title="cover" />
+
+    <div class="portrait" appReveal [revealDelay]="150">
+      <div class="frame">
+        <img src="assets/cover.jpg" alt="Mohamed Atef" title="Mohamed Atef" />
+      </div>
     </div>
   </div>
 </section>
