@@ -1,21 +1,25 @@
-<section>
+<section class="hero-home">
+  <div #canvasHost class="canvas-host" aria-hidden="true"></div>
+
   <main>
-    <div class="hi">
-      <h1>Hi, I’m</h1>
-    </div>
-    <div class="name">
-      <h2>Mohamed Atef</h2>
-    </div>
-    <div class="enjoy">
-      <h3>Frontend Developer | Angular Specialist.</h3>
-    </div>
-    <div class="bref">
-      <p>
-        I craft modern, responsive, and user-centric web applications with a
-        strong focus on performance, scalability, and clean code. With deep
-        expertise in Angular and front-end architecture, I bring ideas to life
-        through seamless, interactive digital experiences.
-      </p>
+    <p class="kicker" appReveal>Hi, my name is</p>
+    <h1 class="name" appReveal [revealDelay]="100">Mohamed Atef<span class="dot">.</span></h1>
+    <h2 class="tagline" appReveal [revealDelay]="200">
+      I build <span class="grad">production-grade</span> web platforms.
+    </h2>
+    <p class="bref" appReveal [revealDelay]="300">
+      Front-End Developer specializing in <strong>Angular</strong> and
+      <strong>TypeScript</strong>. I've shipped a bilingual flight-booking
+      platform with payment integration, real-time operations dashboards, and
+      reusable component systems adopted across product lines.
+    </p>
+    <div class="cta" appReveal [revealDelay]="400">
+      <a class="btn btn-fill" href="#work">See my work</a>
+      <a class="btn" href="#contact">Get in touch</a>
     </div>
   </main>
+
+  <a class="scroll-hint" href="#about" aria-label="Scroll to about">
+    <span></span>
+  </a>
 </section>

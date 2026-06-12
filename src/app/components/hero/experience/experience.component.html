@@ -1,15 +1,17 @@
-<section class="container" id="experience">
-  <h2 class="ex-head">Where I’ve Worked</h2>
-  <div class="inner">
-    <div class="tabs">
+<section class="block" id="experience">
+  <div class="section-head" appReveal>
+    <span class="num">02.</span>
+    <h2>Where I've Worked</h2>
+  </div>
+
+  <div class="inner" appReveal>
+    <div class="tabs" role="tablist">
       @for (company of companies(); track company.id) {
-        <button type="button"
+        <button type="button" role="tab"
           (click)="selectCompany(company)"
           [class.active]="company === selectedCompany()"
         >
-          <span>
-            {{ company.name }}
-          </span>
+          {{ company.name }}
         </button>
       }
     </div>
@@ -18,12 +20,16 @@
       @if (selectedCompany()) {
       <div>
         <h3>
-          <span>{{ selectedCompany().title }}</span>
+          {{ selectedCompany().title }}
           <span class="company">
-            <a>{{selectedCompany().company }}</a>
+            @if (selectedCompany().link) {
+              <a [href]="selectedCompany().link" target="_blank" rel="noopener">{{ selectedCompany().company }}</a>
+            } @else {
+              {{ selectedCompany().company }}
+            }
           </span>
         </h3>
-        <p>{{ selectedCompany().date }}</p>
+        <p class="date">{{ selectedCompany().date }}</p>
         <ul>
           @for (duty of selectedCompany().duties; track duty) {
           <li>{{ duty }}</li>

@@ -1,28 +1,14 @@
-.container{
-  display: flex;
-  justify-content: space-between;
+.container {
+  position: relative;
 }
 
-.left-side{
-  width: 10%;
-}
-.right-side{
-  width: 10%;
-}
-.hero{
-  width: 80%;
+.hero {
+  display: block;
+  width: 100%;
 }
 
-@media (max-width: 480px) {
-  /* Styles for mobile devices */
-  .right-side{
-    width: 1%;
-  }
-  .left-side{
-    width: 1%;
-  }
-  .hero{
-    width: 80%;
-  }
-
+/* Side rails are fixed-position; they take no layout space */
+.left-side,
+.right-side {
+  display: contents;
 }
