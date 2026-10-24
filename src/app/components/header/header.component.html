@@ -1,22 +1,34 @@
-<header>
-  <a class="logo" href="#" aria-label="Home">
-    <span class="mono">&lt;</span>MA<span class="mono">/&gt;</span>
-  </a>
-
-  <nav [ngClass]="{'active': isMenuOpen}">
-    <ul>
-      <li><a href="#about" (click)="closeMenu()"><span>01.</span> About</a></li>
-      <li><a href="#experience" (click)="closeMenu()"><span>02.</span> Experience</a></li>
-      <li><a href="#work" (click)="closeMenu()"><span>03.</span> Work</a></li>
-      <li><a href="#contact" (click)="closeMenu()"><span>04.</span> Contact</a></li>
-    </ul>
-    <div>
-      <a class="resume-button" href="assets/resume/Mohamed_Atef_Frontend_Developer_CV.pdf" target="_blank">Resume</a>
+<header class="site-header" id="top">
+  <a class="wordmark" href="#top" aria-label="Mohamed Atef, back to top"
+    >MA<span class="wordmark-dot">.</span></a
+  >
+  <p class="header-note">
+    FULL-STACK SOFTWARE DEVELOPER<br />ANGULAR · TYPESCRIPT · .NET
+  </p>
+  <nav aria-label="Main navigation">
+    <a href="#work">WORK <span aria-hidden="true">↘</span></a>
+    <a href="#about">ABOUT</a>
+    <a class="resume-nav" [href]="contact.resume" target="_blank" rel="noopener"
+      >CV <span aria-hidden="true">↗</span></a
+    >
+    <div class="connect-wrap">
+      <button
+        id="connect"
+        type="button"
+        [attr.aria-expanded]="menuOpen()"
+        aria-controls="connect-menu"
+        (click)="menuOpen.set(!menuOpen())"
+      >
+        LET'S TALK <span aria-hidden="true">↗</span>
+      </button>
+      <div id="connect-menu" [hidden]="!menuOpen()">
+        <a href="#contact" (click)="menuOpen.set(false)">Get in touch ↘</a>
+        <a [href]="'mailto:' + contact.email">Email me ↗</a>
+        <a [href]="contact.github" target="_blank" rel="noopener">GitHub ↗</a>
+        <a [href]="contact.linkedin" target="_blank" rel="noopener"
+          >LinkedIn ↗</a
+        >
+      </div>
     </div>
   </nav>
-
-  <div class="menu" (click)="toggleMenu()">
-    <i *ngIf="!isMenuOpen" class="pi pi-bars"></i>
-    <i *ngIf="isMenuOpen" class="pi pi-times"></i>
-  </div>
 </header>

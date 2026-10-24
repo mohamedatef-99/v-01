@@ -1,0 +1,177 @@
+<section class="work-chapter" id="work" aria-labelledby="project-title">
+  <div class="work-stage">
+    <div class="chapter-eyebrow">
+      <span>SELECTED WORK</span
+      ><span>A REAL PRODUCT. A FEW CONSIDERED DETAILS.</span>
+    </div>
+    <div class="project-intro">
+      <p class="project-category">FLIGHT BOOKING / WEB PLATFORM</p>
+      <h2 id="project-title">FLY WT<span>.</span></h2>
+      <div class="phase-copy">
+        <h3 class="handwritten" id="phase-title">
+          {{ phases[phaseIndex()].title }}
+        </h3>
+        <p id="phase-description">{{ phases[phaseIndex()].description }}</p>
+      </div>
+      <p class="project-stack">Angular · TypeScript · Tailwind CSS</p>
+    </div>
+    <div class="route-art" aria-hidden="true">
+      <svg viewBox="0 0 1000 450" fill="none">
+        <path
+          class="route-track"
+          d="M60 355C40 120 320 20 470 140S680 430 935 100"
+        />
+        <path
+          class="route-ink"
+          d="M60 355C40 120 320 20 470 140S680 430 935 100"
+        /></svg
+      ><span class="route-start">IDEA</span
+      ><span class="route-end">TAKE-OFF</span>
+    </div>
+    <div class="backing-sheet" aria-hidden="true"></div>
+    <figure class="product-sheet">
+      <span class="tape product-tape" aria-hidden="true"></span
+      ><button
+        class="image-zoom"
+        type="button"
+        (click)="openScreenshot()"
+        aria-label="Open the original Fly WT screenshot"
+      >
+        <img
+          src="assets/paper/flywt-preview.webp"
+          alt="Actual Fly WT interface with flight search, language selection and booking navigation"
+          width="1896"
+          height="786"
+        />
+      </button>
+      <figcaption>
+        <span>FLY WT / THE REAL INTERFACE</span
+        ><button
+          class="zoom-label"
+          type="button"
+          (click)="openScreenshot()"
+          aria-label="Enlarge Fly WT screenshot"
+        >
+          LOOK CLOSER ↗
+        </button>
+      </figcaption>
+    </figure>
+    <p class="search-note handwritten">
+      find your next<br />somewhere. <span aria-hidden="true">↗</span>
+    </p>
+    <img
+      class="story-plane"
+      src="assets/paper/paper-flight.webp"
+      alt=""
+      width="1536"
+      height="1024"
+      aria-hidden="true"
+    />
+    <aside class="boarding-note" aria-label="Booking flow">
+      <span class="tape ticket-tape" aria-hidden="true"></span>
+      <div class="boarding-top">
+        <span>FLY WT</span><span>THE BOOKING JOURNEY</span>
+      </div>
+      <p class="boarding-route">SEARCH <span>→</span> BOOK</p>
+      <div class="boarding-meta">
+        <span>FLIGHT SEARCH<br /><strong>Find the right flight.</strong></span
+        ><span>BOOKING<br /><strong>Make it yours.</strong></span>
+      </div>
+      <div class="boarding-bottom">
+        <span>ONE CONNECTED EXPERIENCE</span
+        ><span class="barcode" aria-hidden="true"></span>
+      </div>
+    </aside>
+    <aside class="language-note">
+      <span class="handwritten">both ways,<br />naturally.</span
+      ><strong>EN <span>↔</span> <span lang="ar" dir="rtl">عربي</span></strong>
+      <p>English & Arabic.<br />Right down to the layout.</p>
+    </aside>
+    <aside class="build-note">
+      <span class="note-pin" aria-hidden="true"></span>
+      <h3 class="handwritten">The details behind it.</h3>
+      <dl>
+        <div>
+          <dt>FRONT END</dt>
+          <dd>Angular + TypeScript</dd>
+        </div>
+        <div>
+          <dt>JOURNEY</dt>
+          <dd>Search, booking & payments</dd>
+        </div>
+        <div>
+          <dt>LANGUAGES</dt>
+          <dd>English + Arabic / RTL</dd>
+        </div>
+      </dl>
+      <p class="handwritten">built from the ground up. ↗</p>
+    </aside>
+    <div class="payment-stamp" aria-hidden="true">
+      <span>SEARCH · BOOK</span><strong>READY<br />TO GO.</strong
+      ><span>PAYMENT INTEGRATION</span>
+    </div>
+    <div class="story-bottom">
+      <div
+        class="story-phases"
+        aria-label="Jump to a stage in the project story"
+      >
+        <button
+          type="button"
+          (click)="jumpTo(0)"
+          [class.active]="phaseIndex() === 0"
+          [attr.aria-current]="phaseIndex() === 0 ? 'step' : null"
+        >
+          01 / FIND</button
+        ><button
+          type="button"
+          (click)="jumpTo(1)"
+          [class.active]="phaseIndex() === 1"
+          [attr.aria-current]="phaseIndex() === 1 ? 'step' : null"
+        >
+          02 / BOOK</button
+        ><button
+          type="button"
+          (click)="jumpTo(2)"
+          [class.active]="phaseIndex() === 2"
+          [attr.aria-current]="phaseIndex() === 2 ? 'step' : null"
+        >
+          03 / TAKE OFF
+        </button>
+      </div>
+      <button
+        type="button"
+        id="play-story"
+        (click)="togglePlayback()"
+        [attr.aria-pressed]="playing()"
+      >
+        {{ playing() ? "PAUSE THE STORY" : "PLAY THE STORY" }}
+        <span aria-hidden="true">↗</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<dialog
+  #screenshotDialog
+  id="screenshot-dialog"
+  aria-label="Fly WT project screenshot"
+  (click)="dismissBackdrop($event)"
+>
+  <button
+    type="button"
+    class="close-dialog"
+    (click)="closeScreenshot()"
+    aria-label="Close screenshot"
+  >
+    CLOSE ×
+  </button>
+  @if (screenshotLoaded()) {
+    <img
+      src="assets/paper/flywt-home.webp"
+      alt="Full original screenshot of the Fly WT flight-booking home page"
+      width="1896"
+      height="786"
+    />
+  }
+  <p>Fly WT / original project screenshot</p>
+</dialog>

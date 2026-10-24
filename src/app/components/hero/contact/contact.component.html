@@ -1,22 +1,42 @@
-<section class="block contactt" id="contact">
-  <p class="overline" appReveal>04. What's Next?</p>
-  <h2 class="title" appReveal [revealDelay]="100">Let's Build Something</h2>
-  <p class="pitch" appReveal [revealDelay]="200">
-    I'm currently open to new opportunities — full-time roles, freelance
-    projects, or interesting collaborations. If you think I'd be a good fit
-    for your team, or you just want to talk front-end, my inbox is open.
-  </p>
-  <a class="btn btn-fill" href="mailto:mohammed.atef.saif@gmail.com" title="Email me" appReveal [revealDelay]="300">Say Hello</a>
-</section>
-
-<footer class="site-footer">
-  <div class="social">
-    <ul>
-      <li><a href="https://github.com/mohamedatef-99" target="_blank" rel="noopener" title="GitHub"><i class="pi pi-github"></i></a></li>
-      <li><a href="https://www.linkedin.com/in/mohamed-atef-/" target="_blank" rel="noopener" title="LinkedIn"><i class="pi pi-linkedin"></i></a></li>
-      <li><a href="https://wa.me/+201114239411" target="_blank" rel="noopener" title="WhatsApp"><i class="pi pi-whatsapp"></i></a></li>
-      <li><a href="https://twitter.com/tef3_99" target="_blank" rel="noopener" title="Twitter"><i class="pi pi-twitter"></i></a></li>
-    </ul>
+<section
+  class="contact section-shell"
+  id="contact"
+  aria-labelledby="contact-title"
+>
+  <div class="contact-note">
+    <span class="tape" aria-hidden="true"></span>
+    <p class="handwritten">Have something in mind?</p>
+    <p>A product to build. An interface to rethink. A team to join.</p>
+    <p>I'd love to hear what you're working on.</p>
+    <span class="handwritten">Let's connect the dots. ↗</span>
   </div>
-  <p>Designed & built by Mohamed Atef</p>
+  <div class="contact-main">
+    <h2 class="contact-title" id="contact-title">
+      LET'S MAKE<br />IT WORK<span class="red">.</span>
+    </h2>
+    <a class="contact-email" [href]="'mailto:' + contact.email"
+      >{{ contact.email }} <span aria-hidden="true">↗</span></a
+    >
+    <div class="copy-row">
+      <button type="button" class="copy-email" (click)="copyEmail()">
+        COPY EMAIL
+        <span aria-hidden="true">{{
+          copyStatus() === "Email copied." ? "✓" : "+"
+        }}</span></button
+      ><span class="copy-status" role="status">{{ copyStatus() }}</span>
+    </div>
+    <div class="contact-socials">
+      <a [href]="contact.github" target="_blank" rel="noopener">GitHub ↗</a
+      ><a [href]="contact.linkedin" target="_blank" rel="noopener"
+        >LinkedIn ↗</a
+      ><a [href]="contact.whatsapp" target="_blank" rel="noopener"
+        >WhatsApp ↗</a
+      >
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <p>© {{ year }} MOHAMED ATEF</p>
+  <p>THOUGHTFULLY BUILT. DOWN TO THE DETAILS.</p>
+  <a href="#top">BACK TO TOP ↑</a>
 </footer>

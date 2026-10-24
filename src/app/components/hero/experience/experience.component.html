@@ -1,42 +1,40 @@
-<section class="block" id="experience">
-  <div class="section-head" appReveal>
-    <span class="num">02.</span>
-    <h2>Where I've Worked</h2>
+<section
+  class="experience section-shell"
+  id="experience"
+  aria-labelledby="experience-title"
+>
+  <div class="experience-heading">
+    <h2 id="experience-title">
+      WHERE I'VE<br />PUT IT TO WORK<span class="red">.</span>
+    </h2>
+    <p class="handwritten">Good work is a team effort.</p>
   </div>
-
-  <div class="inner" appReveal>
-    <div class="tabs" role="tablist">
-      @for (company of companies(); track company.id) {
-        <button type="button" role="tab"
-          (click)="selectCompany(company)"
-          [class.active]="company === selectedCompany()"
-        >
-          {{ company.name }}
-        </button>
-      }
-    </div>
-
-    <div class="content">
-      @if (selectedCompany()) {
-      <div>
-        <h3>
-          {{ selectedCompany().title }}
-          <span class="company">
-            @if (selectedCompany().link) {
-              <a [href]="selectedCompany().link" target="_blank" rel="noopener">{{ selectedCompany().company }}</a>
-            } @else {
-              {{ selectedCompany().company }}
+  <div class="experience-entries">
+    @for (company of companies; track company.name) {
+      <article class="experience-entry">
+        <div class="experience-date">
+          <span class="date-mark" aria-hidden="true">↳</span>
+          <p>{{ company.date }}</p>
+        </div>
+        <div class="experience-content">
+          <h3>{{ company.name }}</h3>
+          <p class="experience-role">
+            {{ company.title }} <span>/ {{ company.fullName }}</span>
+          </p>
+          <ul>
+            @for (duty of company.duties; track duty) {
+              <li>{{ duty }}</li>
             }
-          </span>
-        </h3>
-        <p class="date">{{ selectedCompany().date }}</p>
-        <ul>
-          @for (duty of selectedCompany().duties; track duty) {
-          <li>{{ duty }}</li>
-          }
-        </ul>
-      </div>
-      }
-    </div>
+          </ul>
+        </div>
+      </article>
+    }
   </div>
+  <a
+    class="experience-resume"
+    [href]="contact.resume"
+    target="_blank"
+    rel="noopener"
+    >THE FULL STORY IS IN MY CV <span aria-hidden="true">↗</span></a
+  >
 </section>

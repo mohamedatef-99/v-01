@@ -1,0 +1,91 @@
+<section
+  class="project-notes section-shell"
+  aria-labelledby="notes-title"
+  id="projects"
+>
+  <header class="notes-heading">
+    <h2 id="notes-title">
+      MORE THAN<br />ONE CHAPTER<span class="red">.</span>
+    </h2>
+    <p class="handwritten">A few pages from the work.</p>
+  </header>
+
+  <div class="notebook-desk">
+    <div class="notebook-index">
+      <span class="index-label">THE PROJECT NOTEBOOK</span>
+      <div
+        class="project-tabs"
+        role="tablist"
+        aria-label="Project notes"
+        aria-orientation="vertical"
+      >
+        @for (project of projects; track project.id; let i = $index) {
+          <button
+            type="button"
+            role="tab"
+            [id]="'project-tab-' + i"
+            [attr.aria-controls]="'project-page-' + i"
+            [attr.aria-selected]="selected() === i"
+            [tabIndex]="selected() === i ? 0 : -1"
+            (click)="selectProject(i)"
+            (keydown)="onTabKey($event, i)"
+          >
+            <span class="tab-number">0{{ i + 1 }}</span
+            ><span>{{ project.title }}</span
+            ><span class="tab-arrow" aria-hidden="true">↗</span>
+          </button>
+        }
+      </div>
+      <p class="index-note handwritten">
+        Different problems.<br />Same care for the details.
+      </p>
+      <span class="index-bottom">CLIENT WORK / FRONTEND + BACKEND</span>
+    </div>
+
+    <div class="notebook-pages">
+      @for (project of projects; track project.id; let i = $index) {
+        <article
+          class="case-page"
+          role="tabpanel"
+          [id]="'project-page-' + i"
+          [attr.aria-labelledby]="'project-tab-' + i"
+          [hidden]="selected() !== i"
+          tabindex="0"
+        >
+          <div class="page-meta">
+            <span>PROJECT NOTES</span
+            ><span
+              >0{{ i + 1 }} /
+              {{ projects.length.toString().padStart(2, "0") }}</span
+            >
+          </div>
+          <p class="case-category">{{ project.category }}</p>
+          <h3>{{ project.title }}<span class="red">.</span></h3>
+          <p class="case-headline handwritten">{{ project.headline }}</p>
+          <p class="case-description">{{ project.description }}</p>
+          <ul class="case-details">
+            @for (detail of project.details; track detail) {
+              <li>{{ detail }}</li>
+            }
+          </ul>
+          <div class="case-keywords" aria-label="Project focus">
+            @for (keyword of project.keywords; track keyword) {
+              <span>{{ keyword }}</span>
+            }
+          </div>
+          <dl class="case-facts">
+            <div>
+              <dt>MY ROLE</dt>
+              <dd>{{ project.role }}</dd>
+            </div>
+            <div>
+              <dt>BUILT WITH</dt>
+              <dd>{{ project.stack.join(" · ") }}</dd>
+            </div>
+          </dl>
+          <p class="case-annotation handwritten">{{ project.annotation }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

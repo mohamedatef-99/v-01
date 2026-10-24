@@ -1,34 +1,56 @@
-<section class="block" id="about">
-  <div class="section-head" appReveal>
-    <span class="num">01.</span>
-    <h2>About Me</h2>
+<section class="about section-shell" id="about" aria-labelledby="about-title">
+  <div class="about-title">
+    <h2 id="about-title">
+      BEHIND THE<br />INTERFACE<span class="red">.</span>
+    </h2>
+    <p class="handwritten">A developer. A curious mind.</p>
   </div>
-
-  <div class="grid">
-    <div class="text" appReveal>
-      <p>
-        I'm a Front-End Developer with 2+ years of experience building
-        scalable Angular applications for enterprise clients. I've delivered
-        complex, real-world products — from a full flight-booking platform
-        with payment integration to real-time dashboards and legacy
-        AngularJS-to-Angular migrations.
-      </p>
-      <p>
-        I bring a full-stack perspective (Angular + .NET) and a strong eye
-        for UI/UX and performance. I care about clean, maintainable code:
-        reusable component libraries I've built have been adopted across
-        multiple product lines.
-      </p>
-      <p>
-        Beyond code, I work closely with designers, backend engineers, and
-        product teams in Agile setups — translating business requirements
-        into interfaces that are fast, accessible, and a pleasure to use.
-      </p>
-
-      <div class="skills" appReveal>
-        @for (group of skillGroups(); track group.label) {
+  <div class="book-scene">
+    <div class="open-book">
+      <div class="book-left">
+        <span class="book-label">A LITTLE ABOUT ME</span>
+        <h3 class="handwritten">Hi, I'm Mohamed.</h3>
+        <p>
+          I'm a full-stack software developer with 3+ years of professional
+          experience, working with Angular, TypeScript, C#, and .NET.
+        </p>
+        <p>
+          My work spans flight booking, airline distribution, real-time
+          operations, and frontend rebuilds. I combine a strong Angular
+          background with hands-on contributions to enterprise .NET systems.
+        </p>
+        <p>
+          I collaborate with frontend, backend, QA, and product teams to deliver
+          business features and maintain production systems.
+        </p>
+        <p>
+          I use AI-assisted, specification-driven workflows with Claude Code,
+          Codex, and Cursor across analysis, planning, implementation, testing,
+          and review.
+        </p>
+        <div class="book-signoff">
+          <div class="portrait-note">
+            <img
+              src="assets/cover.jpg"
+              alt="Mohamed Atef"
+              width="100"
+              height="115"
+              loading="lazy"
+            />
+          </div>
+          <span class="handwritten"
+            >Thoughtful work.<br />Down to the details.<span class="signature"
+              >Mohamed.</span
+            ></span
+          >
+        </div>
+      </div>
+      <div class="book-right">
+        <span class="book-label">THINGS I BUILD WITH</span>
+        <h3>THE TOOLBOX<span class="red">.</span></h3>
+        @for (group of skillGroups; track group.label) {
           <div class="skill-group">
-            <span class="label">{{ group.label }}</span>
+            <h4>{{ group.label }}</h4>
             <ul>
               @for (skill of group.skills; track skill) {
                 <li>{{ skill }}</li>
@@ -36,13 +58,29 @@
             </ul>
           </div>
         }
+        <a
+          class="resume-link"
+          [href]="contact.resume"
+          target="_blank"
+          rel="noopener"
+          >READ MY CV <span aria-hidden="true">↗</span></a
+        >
+        <span class="book-page-number" aria-hidden="true"
+          >MORE THAN A TECH STACK.</span
+        >
       </div>
     </div>
-
-    <div class="portrait" appReveal [revealDelay]="150">
-      <div class="frame">
-        <img src="assets/cover.jpg" alt="Mohamed Atef" title="Mohamed Atef" />
-      </div>
+  </div>
+  <div class="background-notes">
+    <div>
+      <h3>EDUCATION</h3>
+      <p>Bachelor of Computer Science</p>
+      <span>Benha University · 2017–2021</span>
+    </div>
+    <div>
+      <h3>CERTIFICATIONS</h3>
+      <p>.NET Development <span>— Route Academy, 2025</span></p>
+      <p>Angular <span>— Udacity, 2023</span></p>
     </div>
   </div>
 </section>

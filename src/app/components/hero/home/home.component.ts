@@ -1,140 +1,97 @@
-import {
-  Component,
-  ElementRef,
-  ViewChild,
-  afterNextRender,
-  OnDestroy,
-} from '@angular/core';
-import { RevealDirective } from '../../../directives/reveal.directive';
-import * as THREE from 'three';
-
+import { Component } from '@angular/core';
+import { usePortfolioMotion } from '../../../portfolio/motion';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RevealDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent implements OnDestroy {
-  @ViewChild('canvasHost', { static: true })
-  canvasHost!: ElementRef<HTMLDivElement>;
-
-  private renderer?: THREE.WebGLRenderer;
-  private rafId = 0;
-  private cleanupFns: (() => void)[] = [];
-
+export class HomeComponent {
   constructor() {
-    // Runs in the browser only — safe with SSR.
-    afterNextRender(() => this.initScene());
-  }
-
-  private initScene(): void {
-    const host = this.canvasHost.nativeElement;
-    const prefersReduced = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      50,
-      host.clientWidth / host.clientHeight,
-      0.1,
-      100
-    );
-    camera.position.z = 7;
-
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: true,
+    usePortfolioMotion(({ gsap }) => {
+      const media = gsap.matchMedia();
+      media.add(
+        {
+          desktop: '(min-width: 900px)',
+          motion: '(prefers-reduced-motion: no-preference)',
+        },
+        (context) => {
+          if (!context.conditions?.['motion']) return;
+          gsap
+            .timeline({ defaults: { ease: 'power3.out', duration: 1 } })
+            .from('.name-line > span', { yPercent: 112, stagger: 0.11 }, 0.08)
+            .from(
+              '.portrait-float',
+              { y: 90, rotation: 6, autoAlpha: 0, duration: 1.15 },
+              0.2,
+            )
+            .from(
+              '.red-print',
+              { scale: 0.7, autoAlpha: 0, rotation: -24 },
+              0.15,
+            )
+            .from(
+              '.hero-scribble',
+              { autoAlpha: 0, y: 12, duration: 0.55 },
+              0.7,
+            )
+            .from('.hero-intro', { autoAlpha: 0, y: 20, duration: 0.6 }, 0.5)
+            .from(
+              '.project-polaroid',
+              { autoAlpha: 0, y: 55, rotation: -15, duration: 0.9 },
+              0.6,
+            )
+            .from(
+              '.hero-flight',
+              { autoAlpha: 0, x: 60, y: 30, duration: 0.9 },
+              0.8,
+            )
+            .from(
+              '.care-stamp',
+              {
+                scale: 1.5,
+                autoAlpha: 0,
+                rotation: 32,
+                duration: 0.3,
+                ease: 'power2.in',
+              },
+              1,
+            )
+            .from(
+              '.maker-ticket, .hero-side-note',
+              { autoAlpha: 0, y: 15, duration: 0.6, stagger: 0.1 },
+              1,
+            );
+          if (context.conditions?.['desktop']) {
+            const trigger = {
+              trigger: '.hero',
+              start: 'top top',
+              end: 'bottom top',
+              scrub: 1,
+            };
+            gsap.to('.portrait-cutout', {
+              y: -65,
+              rotation: -3,
+              ease: 'none',
+              scrollTrigger: trigger,
+            });
+            gsap.to('.project-polaroid', {
+              y: -55,
+              rotation: 1,
+              ease: 'none',
+              scrollTrigger: trigger,
+            });
+            gsap.to('.hero-flight', {
+              x: 50,
+              y: -110,
+              rotation: -5,
+              ease: 'none',
+              scrollTrigger: trigger,
+            });
+          }
+        },
+      );
+      return () => media.revert();
     });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(host.clientWidth, host.clientHeight);
-    host.appendChild(renderer.domElement);
-    this.renderer = renderer;
-
-    // --- Core shape: wireframe icosahedron with glowing vertices ---
-    const group = new THREE.Group();
-    const geo = new THREE.IcosahedronGeometry(2.3, 1);
-
-    const wire = new THREE.LineSegments(
-      new THREE.WireframeGeometry(geo),
-      new THREE.LineBasicMaterial({
-        color: 0x8b7bff,
-        transparent: true,
-        opacity: 0.35,
-      })
-    );
-    group.add(wire);
-
-    const vertices = new THREE.Points(
-      geo,
-      new THREE.PointsMaterial({
-        color: 0x4ee0c2,
-        size: 0.06,
-        transparent: true,
-        opacity: 0.9,
-      })
-    );
-    group.add(vertices);
-
-    // --- Ambient particle field ---
-    const starCount = 350;
-    const positions = new Float32Array(starCount * 3);
-    for (let i = 0; i < starCount * 3; i++) {
-      positions[i] = (Math.random() - 0.5) * 22;
-    }
-    const starGeo = new THREE.BufferGeometry();
-    starGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const stars = new THREE.Points(
-      starGeo,
-      new THREE.PointsMaterial({
-        color: 0x9494ab,
-        size: 0.025,
-        transparent: true,
-        opacity: 0.6,
-      })
-    );
-    scene.add(stars);
-    scene.add(group);
-
-    // --- Mouse parallax ---
-    let targetX = 0;
-    let targetY = 0;
-    const onMove = (e: MouseEvent) => {
-      targetX = (e.clientX / window.innerWidth - 0.5) * 0.6;
-      targetY = (e.clientY / window.innerHeight - 0.5) * 0.6;
-    };
-    window.addEventListener('mousemove', onMove);
-    this.cleanupFns.push(() => window.removeEventListener('mousemove', onMove));
-
-    const onResize = () => {
-      camera.aspect = host.clientWidth / host.clientHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(host.clientWidth, host.clientHeight);
-    };
-    window.addEventListener('resize', onResize);
-    this.cleanupFns.push(() => window.removeEventListener('resize', onResize));
-
-    const clock = new THREE.Clock();
-    const animate = () => {
-      this.rafId = requestAnimationFrame(animate);
-      const t = clock.getElapsedTime();
-      if (!prefersReduced) {
-        group.rotation.y = t * 0.12 + targetX;
-        group.rotation.x = t * 0.06 + targetY;
-        stars.rotation.y = t * 0.015;
-        group.position.y = Math.sin(t * 0.6) * 0.15;
-      }
-      renderer.render(scene, camera);
-    };
-    animate();
-  }
-
-  ngOnDestroy(): void {
-    if (typeof cancelAnimationFrame !== 'undefined') {
-      cancelAnimationFrame(this.rafId);
-    }
-    this.cleanupFns.forEach((fn) => fn());
-    this.renderer?.dispose();
   }
 }
