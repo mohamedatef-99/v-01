@@ -1,0 +1,442 @@
+.boarding-note {
+  position: absolute;
+  left: 40%;
+  top: 65%;
+  width: 320px;
+  background: var(--paper-white);
+  padding: 16px 18px 12px;
+  box-shadow: var(--shadow);
+  z-index: 5;
+  transform: rotate(5deg);
+  border-top: 2px solid var(--blue);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 34%,
+    98.5% 37%,
+    100% 40%,
+    100% 100%,
+    0 100%,
+    0 40%,
+    1.5% 37%,
+    0 34%
+  );
+}
+.boarding-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 6px;
+  letter-spacing: 0.06em;
+}
+.boarding-top span:first-child {
+  font-weight: 500;
+  color: var(--blue);
+  font-size: 10px;
+}
+.boarding-route {
+  font: 31px var(--font-display);
+  margin: 8px 0;
+  letter-spacing: -0.025em;
+}
+.boarding-route > span {
+  font-family: var(--font-body);
+  color: var(--red);
+  font-size: 22px;
+  margin: 0 6px;
+}
+.boarding-meta {
+  border-block: 1px dashed var(--line);
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+  font-size: 6px;
+  line-height: 1.8;
+  gap: 10px;
+}
+.boarding-meta strong {
+  font-size: 8px;
+  font-weight: 400;
+}
+.boarding-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 6px;
+}
+.barcode {
+  display: block;
+  height: 22px;
+  width: 72px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--ink) 0 1px,
+    transparent 1px 3px,
+    var(--ink) 3px 5px,
+    transparent 5px 7px,
+    var(--ink) 7px 8px,
+    transparent 8px 10px
+  );
+}
+.ticket-tape {
+  left: 70%;
+  width: 60px;
+  top: -5px;
+  height: 17px;
+}
+.language-note {
+  position: absolute;
+  right: 6%;
+  top: 72%;
+  z-index: 8;
+  transform: rotate(-8deg);
+}
+.language-note > .handwritten {
+  font-size: 29px;
+  color: var(--blue);
+  display: block;
+  margin-bottom: 8px;
+}
+.language-note > strong {
+  font-size: 25px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+.language-note > strong > span:first-child {
+  color: var(--red);
+}
+.language-note > p {
+  font-size: 8px;
+  line-height: 1.8;
+  margin-top: 8px;
+}
+.build-note {
+  position: absolute;
+  left: 4.6%;
+  top: 67%;
+  width: 29%;
+  max-width: 380px;
+  padding: 15px 16px 9px;
+  border: 1px solid #5c6a6b40;
+  background: #ede9dfd9;
+  background-image:
+    linear-gradient(#52677e18 1px, transparent 1px),
+    linear-gradient(90deg, #52677e18 1px, transparent 1px);
+  background-size: 18px 18px;
+  transform: rotate(-2deg);
+  z-index: 5;
+  box-shadow: 0 3px 6px #3025190b;
+}
+.build-note h3 {
+  font-size: 24px;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+.build-note dl {
+  margin: 0;
+}
+.build-note dl > div {
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  gap: 5px;
+  padding: 4px 0;
+  border-bottom: 1px dotted #171b1928;
+  font-size: 7px;
+}
+.build-note dt {
+  color: var(--red);
+  font-weight: 500;
+}
+.build-note dd {
+  margin: 0;
+  font-size: 7px;
+}
+.build-note > p {
+  color: var(--blue);
+  font-size: 20px;
+  text-align: right;
+  margin-top: 10px;
+}
+.note-pin {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -5px;
+  left: 16px;
+  background: var(--red);
+  border-radius: 50%;
+  box-shadow: 1px 2px 3px #171b1933;
+}
+.payment-stamp {
+  pointer-events: none;
+  position: absolute;
+  right: 24%;
+  top: 49%;
+  width: 160px;
+  aspect-ratio: 1;
+  z-index: 8;
+  border: 4px double var(--red);
+  border-radius: 50%;
+  color: var(--red);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(14deg);
+  background: #f0ebdce8;
+  line-height: 1.4;
+}
+.payment-stamp strong {
+  font: 40px/0.95 var(--font-display);
+  text-align: center;
+  margin: 7px 0;
+}
+.payment-stamp > span {
+  font-size: 7px;
+}
+@media (min-width: 900px) and (max-height: 760px) {
+  .build-note {
+    top: 68%;
+    padding: 12px 13px 7px;
+  }
+  .build-note h3 {
+    font-size: 22px;
+  }
+  .build-note > p {
+    margin-top: 6px;
+  }
+  .boarding-note {
+    top: 62%;
+    width: 300px;
+  }
+  .language-note {
+    top: 70%;
+    right: 6%;
+  }
+  .payment-stamp {
+    top: 49%;
+    width: 140px;
+  }
+}
+@media (min-width: 900px) and (max-width: 1100px) {
+  .build-note {
+    width: 30%;
+  }
+  .build-note dl > div {
+    grid-template-columns: 65px 1fr;
+    font-size: 6px;
+  }
+  .build-note dd {
+    font-size: 6px;
+  }
+  .language-note {
+    right: 4%;
+  }
+  .boarding-note {
+    left: 37%;
+    width: 275px;
+  }
+}
+@media (max-width: 899px) {
+  .boarding-note {
+    position: relative;
+    inset: auto;
+    width: 80%;
+    max-width: 370px;
+    align-self: start;
+    margin-top: -25px;
+    margin-left: 3%;
+    transform: rotate(3deg);
+  }
+  .language-note {
+    position: relative;
+    inset: auto;
+    align-self: end;
+    margin: 20px 20px 0 0;
+    transform: rotate(-5deg);
+  }
+  .language-note > .handwritten {
+    font-size: 31px;
+  }
+  .language-note > strong {
+    font-size: 27px;
+  }
+  .language-note > p {
+    font-size: 9px;
+  }
+  .build-note {
+    position: relative;
+    inset: auto;
+    width: 84%;
+    max-width: 420px;
+    align-self: start;
+    margin: 5px 0 10px;
+    transform: rotate(-2deg);
+    padding: 18px 16px 12px;
+  }
+  .build-note h3 {
+    font-size: 29px;
+  }
+  .build-note dl > div {
+    grid-template-columns: 95px 1fr;
+    padding: 5px 0;
+    font-size: 8px;
+  }
+  .build-note dd {
+    font-size: 8px;
+  }
+  .build-note > p {
+    font-size: 23px;
+    margin-top: 15px;
+  }
+  .payment-stamp {
+    position: relative;
+    inset: auto;
+    align-self: end;
+    width: 130px;
+    margin-top: -10px;
+    margin-right: 13px;
+  }
+  .payment-stamp strong {
+    font-size: 35px;
+  }
+}
+@media (max-width: 520px) {
+  .boarding-note {
+    width: 96%;
+    max-width: none;
+    margin-left: 0;
+  }
+  .boarding-route {
+    font-size: 30px;
+  }
+  .boarding-meta strong {
+    font-size: 8px;
+  }
+  .boarding-meta {
+    font-size: 6px;
+  }
+  .boarding-bottom {
+    font-size: 6px;
+  }
+  .language-note {
+    margin-top: 12px;
+  }
+  .build-note {
+    width: 95%;
+    max-width: none;
+  }
+  .build-note dl > div {
+    grid-template-columns: 84px 1fr;
+    font-size: 7px;
+  }
+  .build-note dd {
+    font-size: 7px;
+  }
+}
+@media (min-width: 900px) and (prefers-reduced-motion: reduce),
+  (min-width: 900px) and (max-height: 649px) {
+  app-flight-story .work-stage.work-stage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+    padding: 30px 7vw 70px;
+    max-width: 1350px;
+  }
+  app-flight-story .work-stage .chapter-eyebrow {
+    position: relative;
+    inset: auto;
+    grid-column: 1/-1;
+  }
+  app-flight-story .work-stage .project-intro {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    grid-column: 1/-1;
+  }
+  app-flight-story .work-stage .phase-copy > p {
+    max-width: 600px;
+    min-height: 0;
+  }
+  app-flight-story .work-stage .phase-copy h3 {
+    min-height: 0;
+    max-width: 600px;
+  }
+  app-flight-story .work-stage .product-sheet {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    grid-column: 1/-1;
+    max-width: 900px;
+    margin: 15px auto;
+    transform: rotate(-2deg);
+  }
+  app-flight-story .work-stage .boarding-note,
+  app-flight-story .work-stage .build-note,
+  app-flight-story .work-stage .language-note,
+  app-flight-story .work-stage .payment-stamp {
+    position: relative;
+    inset: auto;
+    width: auto;
+    max-width: none;
+    align-self: center;
+    margin: 15px 0;
+  }
+  app-flight-story .work-stage .payment-stamp {
+    width: 140px;
+    justify-self: center;
+  }
+  app-flight-story .work-stage .language-note {
+    justify-self: center;
+  }
+  app-flight-story .work-stage .story-bottom {
+    position: relative;
+    inset: auto;
+    grid-column: 1/-1;
+    margin-top: 10px;
+  }
+  app-flight-story .work-stage .backing-sheet,
+  app-flight-story .work-stage .route-art,
+  app-flight-story .work-stage .story-plane,
+  app-flight-story .work-stage .search-note,
+  app-flight-story .work-stage #play-story {
+    display: none;
+  }
+}
+
+dialog {
+  border: 1px solid var(--line);
+  background: var(--paper-white);
+  padding: 55px 15px 15px;
+  width: min(1400px, 94vw);
+  max-height: 90svh;
+  box-shadow: 0 25px 100px #171b1970;
+}
+dialog::backdrop {
+  background: #171b19bd;
+  backdrop-filter: blur(5px);
+}
+dialog img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+dialog > p {
+  margin-top: 12px;
+  font-size: 9px;
+}
+dialog > .close-dialog {
+  position: absolute;
+  right: 17px;
+  top: 15px;
+  font-size: 10px;
+}
+dialog > .close-dialog {
+  min-height: 44px;
+  top: 5px;
+  right: 15px;
+}

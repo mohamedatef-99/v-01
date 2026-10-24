@@ -1,61 +1,191 @@
-.contactt {
-  max-width: 640px;
-  text-align: center;
-  padding-bottom: 80px;
+:host {
+  display: block;
 }
-
-.overline {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  color: var(--accent-2);
+.contact {
+  display: grid;
+  grid-template-columns: 0.8fr 1.5fr;
+  gap: 9%;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 120px;
+}
+.contact-note {
+  position: relative;
+  background: var(--paper-white);
+  padding: 35px 28px 25px;
+  transform: rotate(-5deg);
+  box-shadow: var(--shadow);
+}
+.contact-note > .handwritten:first-of-type {
+  font-size: 31px;
+  color: var(--blue);
+  margin-bottom: 25px;
+}
+.contact-note > p:not(.handwritten) {
+  font-size: 11px;
+  line-height: 2;
   margin-bottom: 16px;
 }
-
-.title {
-  font-size: clamp(36px, 6vw, 56px);
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 18px;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.contact-note > span.handwritten {
+  display: block;
+  color: var(--blue);
+  font-size: 25px;
+  text-align: right;
+  margin-top: 25px;
 }
-
-.pitch {
+.contact-title {
+  font: clamp(66px, 9vw, 138px) / 0.98 var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+.contact-email {
+  font-size: clamp(10px, 1.15vw, 16px);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: fit-content;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 8px;
+  margin-top: 30px;
+  overflow-wrap: anywhere;
+}
+.contact-email > span {
+  font-family: var(--font-hand);
+  font-size: 33px;
+  line-height: 1;
+  color: var(--blue);
+  flex-shrink: 0;
+}
+.copy-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 44px;
+  margin-top: 7px;
+}
+.copy-email {
+  font-size: 8px;
+  padding: 10px 0;
+  white-space: nowrap;
   color: var(--muted);
-  margin-bottom: 40px;
 }
-
-/* Footer */
+.copy-email span {
+  font-size: 16px;
+  color: var(--blue);
+  margin-left: 7px;
+}
+.copy-status {
+  font-size: 8px;
+  color: var(--blue);
+}
+.contact-socials {
+  display: flex;
+  gap: 25px;
+  font-size: 10px;
+  margin-top: 20px;
+}
+.contact-socials a {
+  padding: 8px 0;
+}
+.contact-socials a:hover,
+.contact-email:hover {
+  color: var(--blue);
+}
 .site-footer {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 24px 0 28px;
-}
-
-.site-footer .social ul {
-  display: none;
-  list-style: none;
-  justify-content: center;
-  gap: 26px;
-  margin-bottom: 14px;
-}
-
-.site-footer .social a {
+  max-width: 1600px;
+  margin: auto;
+  border-top: 1px solid var(--line);
+  padding: 24px 4.6vw;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 7px;
   color: var(--muted);
-  font-size: 20px;
 }
-
-.site-footer .social a:hover { color: var(--accent); }
-
-.site-footer p {
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  color: var(--faint);
+.site-footer a {
+  color: var(--ink);
 }
-
-@media (max-width: 900px) {
-  .site-footer .social ul { display: flex; }
+@media (max-width: 899px) {
+  .contact {
+    gap: 7%;
+    grid-template-columns: 0.8fr 1.2fr;
+    padding-top: 40px;
+    padding-bottom: 75px;
+  }
+  .contact-note {
+    padding: 27px 22px;
+  }
+  .contact-note > .handwritten:first-of-type {
+    font-size: 28px;
+  }
+  .contact-note > p:not(.handwritten) {
+    font-size: 10px;
+  }
+  .contact-note > span.handwritten {
+    font-size: 23px;
+  }
+  .contact-title {
+    font-size: 9vw;
+  }
+  .contact-email {
+    font-size: 10px;
+    gap: 5px;
+  }
+  .contact-socials {
+    font-size: 9px;
+    gap: 19px;
+  }
+  .site-footer {
+    padding: 22px 6vw;
+    font-size: 7px;
+  }
+  .site-footer > p:nth-child(2) {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 65px;
+    padding: 35px 9vw 65px;
+  }
+  .contact-note {
+    width: 94%;
+    max-width: 370px;
+    padding: 30px 25px;
+  }
+  .contact-note > p:not(.handwritten) {
+    font-size: 11px;
+  }
+  .contact-title {
+    font-size: 20vw;
+  }
+  .contact-email {
+    font-size: clamp(9px, 2.6vw, 13px);
+    gap: 8px;
+    margin-top: 25px;
+  }
+  .contact-email > span {
+    font-size: 29px;
+  }
+  .contact-socials {
+    font-size: 11px;
+    gap: 25px;
+    margin-top: 15px;
+  }
+  .copy-row {
+    gap: 12px;
+  }
+  .copy-status {
+    font-size: 7px;
+  }
+  .site-footer {
+    font-size: 6px;
+    gap: 12px;
+    align-items: center;
+  }
+}
+.copy-email,
+.contact-socials a {
+  min-height: 44px;
 }

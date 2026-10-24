@@ -1,25 +1,69 @@
-<section class="hero-home">
-  <div #canvasHost class="canvas-host" aria-hidden="true"></div>
-
-  <main>
-    <p class="kicker" appReveal>Hi, my name is</p>
-    <h1 class="name" appReveal [revealDelay]="100">Mohamed Atef<span class="dot">.</span></h1>
-    <h2 class="tagline" appReveal [revealDelay]="200">
-      I build <span class="grad">production-grade</span> web platforms.
-    </h2>
-    <p class="bref" appReveal [revealDelay]="300">
-      Front-End Developer specializing in <strong>Angular</strong> and
-      <strong>TypeScript</strong>. I've shipped a bilingual flight-booking
-      platform with payment integration, real-time operations dashboards, and
-      reusable component systems adopted across product lines.
+<section class="hero" aria-labelledby="hero-name">
+  <div class="red-print" aria-hidden="true"></div>
+  <h1 id="hero-name">
+    <span class="name-line"><span>MOHAMED</span></span
+    ><span class="name-line"
+      ><span>ATEF<span class="name-period">.</span></span></span
+    >
+  </h1>
+  <p class="hero-scribble handwritten">
+    good ideas,<br /><span>made real.</span
+    ><span class="scribble-arrow" aria-hidden="true">↗</span>
+  </p>
+  <div class="portrait-float">
+    <img
+      class="portrait-cutout"
+      src="assets/paper/mohamed-cutout.webp"
+      alt="Mohamed Atef, full-stack software developer"
+      width="1183"
+      height="1330"
+      fetchpriority="high"
+    />
+  </div>
+  <div class="care-stamp" aria-hidden="true">
+    <span>CODE WITH</span><strong>CARE</strong
+    ><span>AND A LITTLE CURIOSITY</span>
+  </div>
+  <div class="hero-intro">
+    <p>I connect thoughtful interfaces<br />with the systems behind them.</p>
+    <p class="intro-small">
+      Full-stack development.<br />Angular, TypeScript & .NET.
     </p>
-    <div class="cta" appReveal [revealDelay]="400">
-      <a class="btn btn-fill" href="#work">See my work</a>
-      <a class="btn" href="#contact">Get in touch</a>
+    <a class="work-link" href="#work"
+      ><span>Take a look at my work</span
+      ><span class="ink-arrow" aria-hidden="true">↘</span></a
+    >
+  </div>
+  <a
+    class="project-polaroid"
+    href="#work"
+    aria-label="Explore Fly WT, a flight-booking platform"
+    ><span class="tape tape-dark" aria-hidden="true"></span
+    ><img
+      src="assets/paper/flywt-preview.webp"
+      alt="Fly WT home page: flight search, departure and destination selectors"
+      width="1896"
+      height="786"
+    /><span class="polaroid-caption"
+      ><span class="handwritten">a little of what I build.</span
+      ><span>FLY WT ↗</span></span
+    ></a
+  >
+  <img
+    class="hero-flight"
+    src="assets/paper/paper-flight.webp"
+    alt=""
+    width="1536"
+    height="1024"
+    aria-hidden="true"
+  />
+  <div class="maker-ticket">
+    <span class="ticket-label">ONE WAY / FROM IDEA TO INTERFACE</span>
+    <div>
+      <strong>BUILD.<br />REFINE.<br />SHIP.</strong
+      ><span class="ticket-side">MOHAMED<br />ATEF<br />FULL-STACK</span>
     </div>
-  </main>
-
-  <a class="scroll-hint" href="#about" aria-label="Scroll to about">
-    <span></span>
-  </a>
+    <span class="ticket-tear" aria-hidden="true"></span>
+  </div>
+  <p class="hero-side-note handwritten">Yes, the little details too.</p>
 </section>
